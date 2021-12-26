@@ -31,7 +31,7 @@
             <h2 class="addr-title">收货地址</h2>
             <div class="addr-list clearfix">
               <div class="addr-info" :class="{'checked':index == checkIndex}" @click="checkIndex=index" v-for="(item,index) in list" :key="index">
-                <h2>{{item.receiverName}}</h2>
+                <h2>{{item.receiveName}}</h2>
                 <div class="phone">{{item.receivePhone}}</div>
                 <div class="street">{{item.province + ' ' + item.city + ' ' + item.area + ' ' + item.street}}</div>
                 <div class="action">
@@ -219,9 +219,9 @@ export default{
       if(userAction == 0){
         method = 'post',url = '/address/add';
       }else if(userAction == 1){
-        method = 'put',url = `/shippings/${checkedItem.id}`;
+        method = 'put',url = `/address/${checkedItem.addressId}`;
       }else {
-        method = 'delete',url = `/shippings/${checkedItem.id}`;
+        method = 'delete',url = `/address/${checkedItem.addressId}`;
       }
       if(userAction == 0 || userAction ==1){
         let { receiveName, receivePhone, province,provinceCode="001", city,cityCode="001001", area,areaCode="001001001", street, postalCode} = checkedItem;

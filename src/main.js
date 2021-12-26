@@ -24,6 +24,7 @@ axios.interceptors.response.use(function(response){
     if (path != '#/index'){
       window.location.href = '/#/login';
     }
+    localStorage.removeItem("Authorization")
     Message.warning(res.msg);
     return Promise.reject(res);
   }else{
