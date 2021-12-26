@@ -83,7 +83,7 @@
     methods:{
       getProductInfo(){
         let id = this.$route.params.id;
-        this.axios.get(`/product/${id}`).then((res)=>{
+        this.axios.get(`/api/product/${id}`).then((res)=>{
           this.product = res;
         })
       },

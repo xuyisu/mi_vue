@@ -23,12 +23,12 @@ export default {
   },
   methods:{
     getUser(){
-      this.axios.get('/user/getUser').then((res={})=>{
+      this.axios.get('/api/user/getUser').then((res={})=>{
         this.$store.dispatch('saveUserName',res.userName);
       })
     },
     getCartCount(){
-      this.axios.get('/cart/sum').then((res=0)=>{
+      this.axios.get('/api/cart/sum').then((res=0)=>{
         this.$store.dispatch('saveCartCount',res);
       })
     }

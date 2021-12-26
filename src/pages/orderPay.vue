@@ -101,14 +101,14 @@ export default{
   },
   methods:{
     getOrderDetail(){
-      this.axios.get(`/order/${this.orderNo}`).then((res)=>{
+      this.axios.get(`/api/order/${this.orderNo}`).then((res)=>{
         this.addressInfo = `${res.receiveName} ${res.receivePhone} ${res.province} ${res.city} ${res.area} ${res.street}`;
         this.orderDetail = res.details;
         this.payment = res.payment;
       })
     },
     paySubmit(payTool){
-      this.axios.post('/order/pay',{
+      this.axios.post('/api/order/pay',{
           orderNo:this.orderNo,
           payTool:payTool
         }).then(()=>{
@@ -124,7 +124,7 @@ export default{
     // 轮询当前订单支付状态
     loopOrderState(){
       this.T = setInterval(()=>{
-        this.axios.get(`/order/${this.orderNo}`).then((res)=>{
+        this.axios.get(`/api/order/${this.orderNo}`).then((res)=>{
           if(res.status == 20){
             clearInterval(this.T);
             this.goOrderList();

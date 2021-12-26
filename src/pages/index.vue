@@ -226,7 +226,7 @@ export default {
   methods: {
     init() {
       this.axios
-        .get("/product/pages", {
+        .get("/api/product/pages", {
           params: {
             categoryId: 100012,
             size: 14,
@@ -239,7 +239,7 @@ export default {
     },
     addCart(productId) {
       this.axios
-        .post("/cart/add", {
+        .post("/api/cart/add", {
           productId: productId,
         })
         .then((res) => {

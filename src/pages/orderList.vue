@@ -109,7 +109,7 @@
       getOrderList(){
         this.loading = true;
         this.busy = true;
-        this.axios.get('/order/pages',{
+        this.axios.get('/api/order/pages',{
           params:{
             pageSize:10,
             pageNum:this.pageNum

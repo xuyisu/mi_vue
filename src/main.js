@@ -8,11 +8,8 @@ import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
-const mock = false;
-if(mock){
-  require('./mock/api');
-}
-axios.defaults.baseURL = '/api';
+
+axios.defaults.baseURL = '/web';
 axios.defaults.timeout = 8000; 
 //拦截器
 axios.interceptors.response.use(function(response){

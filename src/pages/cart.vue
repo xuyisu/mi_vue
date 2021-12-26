@@ -79,7 +79,7 @@
     methods:{
       // 获取购物车列表
       getCartList(){
-        this.axios.get('/cart/list').then((res)=>{
+        this.axios.get('/api/cart/list').then((res)=>{
           this.renderData(res);
         })
       },
@@ -102,7 +102,7 @@
         }else{
           selected = !item.selected;
         }
-        this.axios.put(`/cart/${item.productId}`,{
+        this.axios.put(`/api/cart/${item.productId}`,{
           selected,
           type
         }).then(()=>{
@@ -111,14 +111,14 @@
       },
       // 删除购物车商品
       delProduct(item){
-        this.axios.delete(`/cart/${item.productId}`).then(()=>{
+        this.axios.delete(`/api/cart/${item.productId}`).then(()=>{
           this.$message.success('删除成功');
           this.getCartList();
         });
       },
       // 控制全选功能
       toggleAll(){
-        let url = this.allChecked?'/cart/unSelectAll':'/cart/selectAll';
+        let url = this.allChecked?'/api/cart/unSelectAll':'/api/cart/selectAll';
         this.axios.put(url).then(()=>{
           this.getCartList();
         })

@@ -150,7 +150,7 @@
         this.$router.push('/login');
       },
       getProductList(){
-        this.axios.get('/product/pages',{
+        this.axios.get('/api/product/pages',{
           params:{
             categoryId:'100012',
             pageSize:6
@@ -160,12 +160,12 @@
         })
       },
       getCartCount(){
-        this.axios.get('/cart/sum').then((res=0)=>{
+        this.axios.get('/api/cart/sum').then((res=0)=>{
           this.$store.dispatch('saveCartCount',res);
         })
       },
       logout(){
-        this.axios.post('/user/logout').then(()=>{
+        this.axios.post('/api/user/logout').then(()=>{
           this.$message.success('退出成功');
           localStorage.removeItem('Authorization');
           this.$store.dispatch('saveUserName','');

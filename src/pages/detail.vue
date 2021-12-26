@@ -92,16 +92,16 @@ export default{
   },
   methods:{
     getProductInfo(){
-      this.axios.get(`/product/${this.id}`).then((res)=>{
+      this.axios.get(`/api/product/${this.id}`).then((res)=>{
         this.product = res;
       })
     },
     addCart(){
-      this.axios.post('/cart/add',{
+      this.axios.post('/api/cart/add',{
         productId:this.id
       }).then((res={cartProductVoList:0})=>{
-        this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
-        // this.$router.push('/cart');
+        this.$store.dispatch('saveCartCount',res);
+        this.$router.push('/cart');
       });
     }
   }

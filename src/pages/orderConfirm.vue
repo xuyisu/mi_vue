@@ -187,7 +187,7 @@ export default{
   },
   methods:{
     getAddressList(){
-      this.axios.get('/address/pages',{
+      this.axios.get('/api/address/pages',{
           params:{
             size:3
           }
@@ -217,11 +217,11 @@ export default{
       let {checkedItem,userAction} = this;
       let method,url,params={};
       if(userAction == 0){
-        method = 'post',url = '/address/add';
+        method = 'post',url = '/api/address/add';
       }else if(userAction == 1){
-        method = 'put',url = `/address/${checkedItem.addressId}`;
+        method = 'put',url = `/api/address/${checkedItem.addressId}`;
       }else {
-        method = 'delete',url = `/address/${checkedItem.addressId}`;
+        method = 'delete',url = `/api/address/${checkedItem.addressId}`;
       }
       if(userAction == 0 || userAction ==1){
         let { receiveName, receivePhone, province,provinceCode="001", city,cityCode="001001", area,areaCode="001001001", street, postalCode} = checkedItem;
@@ -269,7 +269,7 @@ export default{
       this.showEditModal = false;
     },
     getCartList(){
-      this.axios.get('/cart/list').then((res)=>{
+      this.axios.get('/api/cart/list').then((res)=>{
         let list = res.cartProductList;//获取购物车中所有商品数据
         this.cartTotalPrice = res.cartTotalPrice;//商品总金额
         this.cartList = list.filter(item=>item.selected);
@@ -285,7 +285,7 @@ export default{
         this.$message.error('请选择一个收货地址');
         return;
       }
-      this.axios.post('/order/create',{
+      this.axios.post('/api/order/create',{
         addressId:item.addressId
       }).then((res)=>{
         this.$router.push({

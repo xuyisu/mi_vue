@@ -49,7 +49,7 @@ export default {
   methods:{
     login(){
       let { userName,password } = this;
-      this.axios.post('/user/login',{
+      this.axios.post('/api/user/login',{
         userName,
         password
       }).then((res)=>{
