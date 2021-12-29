@@ -153,7 +153,7 @@
         this.axios.get('/api/product/pages',{
           params:{
             categoryId:'100012',
-            pageSize:6
+            size:6
           }
         }).then((res)=>{
           this.phoneList = res.records;
