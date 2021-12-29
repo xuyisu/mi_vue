@@ -100,7 +100,7 @@
           }
           ++quantity;
         }else{
-          selected = !item.selected;
+          selected = item.selected==1?0 :1
         }
         this.axios.put(`/api/cart/${item.productId}`,{
           selected,

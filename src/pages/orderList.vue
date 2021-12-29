@@ -111,8 +111,8 @@
         this.busy = true;
         this.axios.get('/api/order/pages',{
           params:{
-            pageSize:10,
-            pageNum:this.pageNum
+            size:this.pageSize,
+            current:this.pageNum
           }
         }).then((res)=>{
           this.loading = false;
@@ -163,8 +163,8 @@
         this.loading = true;
         this.axios.get('/order/pages',{
           params:{
-            pageSize:10,
-            pageNum:this.pageNum
+            size:10,
+            current:this.pageNum
           }
         }).then((res)=>{
           this.list = this.list.concat(res.records);
