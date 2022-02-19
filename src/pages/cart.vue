@@ -19,7 +19,7 @@
           <ul class="cart-item-list">
             <li class="cart-item" v-for="(item,index) in list" v-bind:key="index">
               <div class="item-check">
-                <span class="checkbox" v-bind:class="{'checked':item.selected}"  @click="updateCart(item)"></span>
+                <span class="checkbox" v-bind:class="{'checked':item.selected>0}"  @click="updateCart(item)"></span>
               </div>
               <div class="item-name">
                 <img v-lazy="item.productMainImage" alt="">
